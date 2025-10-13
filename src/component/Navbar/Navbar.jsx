@@ -1,11 +1,13 @@
 import React from "react";
 import "./Navbar.css";
+import { NavLink } from "react-router-dom";
+import { assets } from "../../assets/assets";
 
 const Navbar = () => {
   const links = ["Home", "Menu", "Contact", "About"];
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center mt-5">
       <div className="navbar w-11/12 mx-auto bg-base-100 shadow-sm px-6">
         <div className="navbar-start">
           <div className="dropdown">
@@ -31,26 +33,36 @@ const Navbar = () => {
             >
               {links.map((text, i) => (
                 <li key={i}>
-                  <a href={`/${text.toLowerCase()}`}>{text}</a>
+                  <NavLink href={`/${text.toLowerCase()}`}>{text}</NavLink>
                 </li>
               ))}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-bold text-primary">FoodZone</a>
+          <a className="btn btn-ghost  font-bold text-primary border-none shadow-none text-2xl">
+            FoodZone
+          </a>
         </div>
 
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {links.map((text, i) => (
               <li key={i}>
-                <a href={`/${text.toLowerCase()}`}>{text}</a>
+                <NavLink href={`/${text.toLowerCase()}`}>{text}</NavLink>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="navbar-end">
-          <a className="btn text-red-600 font-bold px-5">SignUp</a>
+        <div className="navbar-end flex gap-4 items-center">
+          <div>
+            <img src={assets.basket_icon} alt="" />
+          </div>
+          <div>
+            <img src={assets.search_icon} alt="" />
+          </div>
+          <a className="btn text-red-600 font-bold px-5 rounded-3xl hover:bg-amber-100 transition-colors duration-500 ease-in-out">
+            SignUp
+          </a>
         </div>
       </div>
     </div>
