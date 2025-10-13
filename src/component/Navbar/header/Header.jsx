@@ -4,9 +4,12 @@ const Header = () => {
   return (
     <>
       <div
-        className="hero min-h-screen  w-11/12 mx-auto"
+        className="hero h-[70vh]  w-11/12 mx-auto flex items-center justify-center bg-white"
         style={{
           backgroundImage: "url(public/header_img.png)",
+          backgroundSize: "contain",
+          backgroundRepeat:"no-repeat",
+          backgroundPosition: "center",
         }}
       >
         {/* <div className="hero-overlay"></div> */}
