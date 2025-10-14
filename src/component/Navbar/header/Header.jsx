@@ -1,31 +1,35 @@
 import React from "react";
+import {motion} from "framer-motion"
 
 const Header = () => {
   return (
     <>
       <div
-        className="hero h-[70vh]  w-11/12 mx-auto flex items-center justify-center bg-white"
+        className="hero h-[34vw] w-11/12 mx-auto  rounded-lg flex items-center mt-3 justify-center bg-white relative"
         style={{
           backgroundImage: "url(public/header_img.png)",
           backgroundSize: "contain",
-          backgroundRepeat:"no-repeat",
+
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
       >
         {/* <div className="hero-overlay"></div> */}
-        <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+        <motion.div className="hero-content text-neutral-content absolute bottom-[10%] left-[1.5vw] w-1/2"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: "easeOut" }}>
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-5xl font-bold">Order Your Fav Food</h1>
             <p className="mb-1">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              excepturi exercitationem quasi.
             </p>
-            <button className="btn bg-white text-black rounded-3xl">
-              Get Started
+            <button className="btn bg-white text-black mt-2 rounded-3xl">
+              Order Now
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

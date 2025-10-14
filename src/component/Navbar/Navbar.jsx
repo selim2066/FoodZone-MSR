@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-center items-center mt-5">
-      <div className="navbar w-9/12 mx-auto bg-base-100 shadow-sm px-6">
+      <div className="navbar w-11/12 mx-auto bg-base-100shadow-sm px-6">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
