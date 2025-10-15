@@ -6,20 +6,20 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = ({ children }) => {
   const [cart, setCart] = useState({});
 
-//   const addCartItem = (itemId) => {
-//     if (!cart[itemId]) {
-//       setCart((prev) => ({ ...prev, [itemId]: 1 }));
-//     } else {
-//       setCart((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-//     }
-//   };
+  //   const addCartItem = (itemId) => {
+  //     if (!cart[itemId]) {
+  //       setCart((prev) => ({ ...prev, [itemId]: 1 }));
+  //     } else {
+  //       setCart((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+  //     }
+  //   };
 
-const addCartItem = (itemId) => {
-  setCart((prev) => ({
-    ...prev,
-    [itemId]: (prev[itemId] || 0) + 1, 
-  }));
-};
+  const addCartItem = (itemId) => {
+    setCart((prev) => ({
+      ...prev,
+      [itemId]: (prev[itemId] || 0) + 1,
+    }));
+  };
 
   const removeCartItem = (itemId) => {
     setCart((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
@@ -34,15 +34,14 @@ const addCartItem = (itemId) => {
   };
   console.log(contextValue);
 
-  useEffect(()=>{
-    console.log(cart)
-  },[cart])
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
 
   return (
     <StoreContext.Provider value={contextValue}>
       {children}
     </StoreContext.Provider>
-    
   );
 };
 

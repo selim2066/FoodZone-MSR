@@ -3,17 +3,23 @@ import React, { useContext } from "react";
 import { StoreContext } from "../../../Context/StoreContext";
 import { assets } from "../../../assets/assets";
 
-const FoodDisplay = () => {
+const FoodDisplay = ({ category }) => {
   const { food_list } = useContext(StoreContext);
   const { addCartItem, removeCartItem, cart, setCart } =
     useContext(StoreContext);
+
+  const filtered = category=="All"? food_list: food_list.filter((food) => {
+    return food.category === category;
+  });
+
+  console.log(filtered);
   return (
     <>
       <h1 className="text-2xl font-bold text-amber-600 w-11/12 mx-auto">
         Top Dissess
       </h1>
       <div className="grid grid-cols-4 mx-auto w-11/12 gap-x-5 gap-y-10">
-        {food_list.map((item, index) => {
+        {filtered.map((item, index) => {
           return (
             <div className="space-y-2 shadow-lg rounded-2xl">
               <div className="overflow-hidden rounded-xl p-2 relative ">
