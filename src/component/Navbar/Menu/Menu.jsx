@@ -1,6 +1,6 @@
 import React from "react";
 import { menu_list } from "../../../assets/assets";
-import { div } from "framer-motion/client";
+
 
 const Menu = () => {
   return (
