@@ -4,6 +4,7 @@ import Auth from "../layouts/HomeLayouts/Authentication/Auth";
 
 import Login from "../layouts/HomeLayouts/Login/Login";
 import Registration from "../layouts/HomeLayouts/Registration/Registration";
+import Cart from "../layouts/HomeLayouts/cart/Cart";
 
 
 const router = createBrowserRouter([
@@ -25,5 +26,9 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path:"/cart",
+    element:<Cart/>
+  }
 ]);
 export default router;

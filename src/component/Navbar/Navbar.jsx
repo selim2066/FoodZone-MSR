@@ -57,7 +57,7 @@ const Navbar = () => {
 
         <div className="navbar-end flex gap-4 items-center">
           <div>
-            <img src={assets.basket_icon} alt="" />
+            <Link to="/cart" ><img src={assets.basket_icon} alt="" /></Link>
           </div>
           <div>
             <img src={assets.search_icon} alt="" />
