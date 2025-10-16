@@ -3,6 +3,9 @@ import Navbar from '../../component/Navbar/Navbar';
 import Header from '../../component/Navbar/header/Header';
 import Menu from '../../component/Navbar/Menu/Menu';
 import FoodDisplay from '../../component/Navbar/foodDisplay/FoodDisplay';
+import Footer from '../../component/Navbar/footer/Footer';
+
+
 
 function Home() {
     const [category, setCategory]=useState("All")
@@ -13,6 +16,7 @@ function Home() {
             <Header></Header>
             <Menu setCategory={setCategory} category={category}/>
             <FoodDisplay category={category}/>
+            <Footer/>
             
         </div>
     );

@@ -8,9 +8,12 @@ const FoodDisplay = ({ category }) => {
   const { addCartItem, removeCartItem, cart, setCart } =
     useContext(StoreContext);
 
-  const filtered = category=="All"? food_list: food_list.filter((food) => {
-    return food.category === category;
-  });
+  const filtered =
+    category == "All"
+      ? food_list
+      : food_list.filter((food) => {
+          return food.category === category;
+        });
 
   console.log(filtered);
   return (
@@ -18,46 +21,51 @@ const FoodDisplay = ({ category }) => {
       <h1 className="text-2xl font-bold text-amber-600 w-11/12 mx-auto">
         Top Dissess
       </h1>
-      <div className="grid grid-cols-4 mx-auto w-11/12 gap-x-5 gap-y-10">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto w-11/12 gap-x-5 gap-y-10">
         {filtered.map((item, index) => {
           return (
-            <div className="space-y-2 shadow-lg rounded-2xl">
-              <div className="overflow-hidden rounded-xl p-2 relative ">
+            <div key={index} className="space-y-2 shadow-lg rounded-2xl">
+              <div className="relative overflow-hidden rounded-xl p-2">
                 <img
                   src={item.image}
-                  className="transition-transform duration-300 hover:scale-125 rounded-lg"
-                  alt=""
+                  className="w-full h-60 object-cover transition-transform duration-300 hover:scale-110 rounded-lg"
+                  alt={item.name}
                 />
-                <div className="absolute bottom-5 right-5 bg-amber-50 p-2 rounded-3xl">
+
+                {/* Add/Remove Button */}
+                <div className="absolute bottom-3 right-3 sm:bottom-3 sm:right-3 transition-all">
                   {!cart[item._id] ? (
                     <img
-                      className="w-8"
+                      className="w-8 sm:w-7 md:w-8 cursor-pointer hover:scale-110 transition-transform duration-300"
                       onClick={() => addCartItem(item._id)}
                       src={assets.add_icon_white}
-                      alt=""
+                      alt="add"
                     />
                   ) : (
-                    <div className="flex items-center gap-2 font-semibold">
+                    <div className="flex items-center gap-2 bg-amber-50 p-2 rounded-3xl font-semibold transition-all duration-300">
                       <img
-                        className="w-7"
+                        className="w-6 sm:w-5 cursor-pointer hover:scale-110 transition-transform duration-300"
                         onClick={() => removeCartItem(item._id)}
                         src={assets.remove_icon_red}
-                        alt=""
+                        alt="remove"
                       />
-                      <p>{cart[item._id]}</p>
+                      <p className="text-sm sm:text-base">{cart[item._id]}</p>
                       <img
-                        className="w-7"
+                        className="w-6 sm:w-5 cursor-pointer hover:scale-110 transition-transform duration-300"
                         onClick={() => addCartItem(item._id)}
                         src={assets.add_icon_green}
-                        alt=""
+                        alt="add"
                       />
                     </div>
                   )}
                 </div>
               </div>
+
               <div className="pl-4 pb-5 space-y-3">
-                <h1 className="text-xl font-semibold pt-5">{item.name}</h1>
-                <p className="text-lg text-gray-400">{item.description}</p>
+                <h1 className="text-xl font-semibold pt-3">{item.name}</h1>
+                <p className="text-lg text-gray-400 line-clamp-2">
+                  {item.description}
+                </p>
                 <p className="text-xl font-bold text-amber-600">
                   ${item.price}
                 </p>
@@ -66,6 +74,8 @@ const FoodDisplay = ({ category }) => {
           );
         })}
       </div>
+
+      <hr className=" w-11/12 mx-auto pb-5  border-amber-700 border-t-4 " />
     </>
   );
 };
