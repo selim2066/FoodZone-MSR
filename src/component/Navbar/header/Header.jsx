@@ -22,10 +22,10 @@ const Header = () => {
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
           <div className="max-w-lg">
-            <h1 className="mb-5 lg:text-5xl sm:text-3xl font-bold">
+            <h1 className="mb-5 md:text-5xl text-2xl font-bold">
               Order Your Fav Food
             </h1>
-            <p className="mb-1">
+            <p className="mb-1 hidden sm:block">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi.
             </p>
