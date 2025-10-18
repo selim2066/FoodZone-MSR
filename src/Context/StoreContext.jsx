@@ -18,8 +18,11 @@ const StoreContextProvider = ({ children }) => {
     setCart((prev) => ({
       ...prev,
       [itemId]: (prev[itemId] || 0) + 1,
+      //total:prev
     }));
+    
   };
+  //console.log(total)
 
   const removeCartItem = (itemId) => {
     setCart((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
