@@ -1,5 +1,5 @@
 import React from "react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
@@ -7,7 +7,7 @@ const Header = () => {
       <div
         className="hero h-[34vw] w-11/12 mx-auto  rounded-lg flex items-center mt-3 justify-center bg-white relative"
         style={{
-          backgroundImage: "url(public/header_img.png)",
+          backgroundImage: "url('/header_img.png')",
           backgroundSize: "cover",
 
           backgroundRepeat: "no-repeat",
@@ -15,12 +15,16 @@ const Header = () => {
         }}
       >
         {/* <div className="hero-overlay"></div> */}
-        <motion.div className="hero-content text-neutral-content absolute bottom-[10%] left-[1.5vw] w-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}>
+        <motion.div
+          className="hero-content text-neutral-content absolute bottom-[10%] left-[1.5vw] w-1/2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+        >
           <div className="max-w-lg">
-            <h1 className="mb-5 lg:text-5xl sm:text-3xl font-bold">Order Your Fav Food</h1>
+            <h1 className="mb-5 lg:text-5xl sm:text-3xl font-bold">
+              Order Your Fav Food
+            </h1>
             <p className="mb-1">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
               excepturi exercitationem quasi.
